@@ -38,8 +38,8 @@ class Printer {
             v.add(new Hamster(i));
         
         for(int i = 0; i < 3; i++) {
-            String imie;
-            int id;
+            String imie = "";
+            int id=0;
             Hamster hamster;
 
             try {
@@ -47,9 +47,12 @@ class Printer {
                 if (id < 0) throw new Exception("identyfikator ujemny");
                 imie = s1.nextLine();
             } catch (Exception e) {
-                s1.nextLine();
-                id = s1.nextInt();
-                imie = s1.nextLine();
+                if (s1.hasNextInt()) {
+                    id = s1.nextInt();
+                }
+                if (s1.hasNextLine()) {
+                    imie = s1.nextLine();
+                }
             }
             hamster = new Hamster(id);
             hamster.setHamsterName(imie);
