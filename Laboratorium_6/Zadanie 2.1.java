@@ -28,7 +28,7 @@ class Printer {
     }
 }
 
-public class HamsterMaze {
+ class HamsterMaze {
     public static void main(String[] args) {
         Scanner s1 = new Scanner(System.in);
         List<Hamster> v = new ArrayList<Hamster>();
@@ -39,16 +39,16 @@ public class HamsterMaze {
         
         for(int i = 0; i < 3; i++) {
             String imie;
-            int id = 0;
+            int id;
             Hamster hamster;
 
             try {
                 id = s1.nextInt();
-                if (id < 0) {
-                    throw new Exception("identyfikator ujemny");
-                }
+                if (id < 0) throw new Exception("identyfikator ujemny");
                 imie = s1.nextLine();
             } catch (Exception e) {
+                s1.nextLine();
+                id = s1.nextInt();
                 imie = s1.nextLine();
             }
             hamster = new Hamster(id);
